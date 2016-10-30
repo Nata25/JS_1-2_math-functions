@@ -1,4 +1,5 @@
 // -------------------------------------
+// Javasctipt. HW 1
 // Raise the number into the given power
 // Parameters are get from user input
 // Result is printed to the console
@@ -9,22 +10,22 @@ pow();
 // Main controller
 function pow() {
 
-  var result, number, power;
+    var result, number, power;
 
-  number = getParameters('number');
-  power = getParameters('power');
+    number = getParameters('number');
+    power = getParameters('power');
 
-  // If user cancelled prompt
-  if ( (number == null) || (power == null) ) {
-      console.log("No values provided.");
-  }
+    // If user cancelled prompt
+    if ( (number == null) || (power == null) ) {
+        console.log("No values provided.");
+    }
 
-  else {
-    result = calculatePow(number, power);
-  }
+    else {
+      result = calculatePow(number, power);
+    }
 
-  console.log(number + ' to the power of ' +
-              power + ' equals ' + result);
+    console.log(number + ' to the power of ' +
+                power + ' equals ' + result);
 
 } // end of pow()
 
@@ -37,14 +38,15 @@ function pow() {
 // @return {number} value
 
 function getParameters(param) {
-  var input = prompt('Enter the ' + param + ':', '1');
-  // Check if user entered a number; prompt again if not:
-  var value = +input;
-  while ( (Number.isNaN(input)) || (input.indexOf(' ') != -1) ) {
-    input = prompt('Only numbers, please. Enter the ' + param + ':', '1');
-    value = +input;
-  }
-  return value;
+
+    var input = prompt('Enter the ' + param + ':', '1');
+    // Check if user entered a number; prompt again if not:
+    var value = +input;
+    while ( (Number.isNaN(input)) || (input.indexOf(' ') != -1) ) {
+      input = prompt('Only numbers, please. Enter the ' + param + ':', '1');
+      value = +input;
+    }
+    return value;
 }
 
 // Calculate power of a number
