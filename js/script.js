@@ -13,21 +13,16 @@ function pow() {
     var result, number, power;
 
     number = getParameters('number');
-    power = getParameters('power');
-
-    // If user cancelled prompt
-    if ( (number == null) || (power == null) ) {
-        console.log("No values provided.");
+    if (number != undefined) {
+        power = getParameters('power');
     }
 
-    else {
-      result = calculatePow(number, power);
+    if (power != undefined) {
+        result = calculatePow(number, power);
+        console.log(number + ' to the power of ' +
+                    power + ' equals ' + result);
     }
-
-    console.log(number + ' to the power of ' +
-                power + ' equals ' + result);
-
-} // end of pow()
+}
 
 // -------------------------------------
 // Helpers
@@ -39,14 +34,17 @@ function pow() {
 
 function getParameters(param) {
 
-    var input = prompt('Enter the ' + param + ':', '1');
-    // Check if user entered a number; prompt again if not:
-    var value = +input;
-    while ( (Number.isNaN(input)) || (input.indexOf(' ') != -1) ) {
-      input = prompt('Only numbers, please. Enter the ' + param + ':', '1');
-      value = +input;
+    var input = prompt('Enter the ' + param + ':', '0');
+
+    if (input == null) {
+        console.log("No values provided.");
+        return;
     }
-    return value;
+
+    while (Number.isNaN(+input) || (input.indexOf(' ') != -1) ) {
+        input = prompt('Only numbers are allowed. Enter the ' + param + ':', '0');
+    }
+    return input;
 }
 
 // Calculate power of a number
