@@ -1,8 +1,6 @@
 // -------------------------------------
 // JavaScript. HW 1
-// Raise number to the given power
-// Parameters are get from user input
-// Result is printed to the console
+// analogue of Math.pow()
 // -------------------------------------
 
 var number = prompt("Enter number: ", 0);
@@ -13,7 +11,7 @@ if ( (isNaN(+number)) || (isNaN(+power)) ) {
 }
 else console.log(pow(number, power));
 
-
+// Raise number to the given power
 function pow(num, pw) {
     var result = 1;
     for (var i = 1; i<= Math.abs(pw); i++) {
