@@ -45,10 +45,6 @@ function getParameters(param) {
         }
 
         var invalid = (Number.isNaN(+input) || (input.indexOf(' ') != -1) );
-        console.log(invalid);
-        // console.log((Number.isNaN(+input)));
-        // console.log(input.indexOf(' ') == -1);
-        // console.log((input.indexOf(' ') == -1));
 
     } while (invalid);
 
@@ -58,6 +54,7 @@ function getParameters(param) {
 // Calculate power of a number
 // @param {number} number >= 0 or =< 0
 // @param {number} power
+// @return {number}
 
 function calculatePow(number, power) {
 
@@ -66,6 +63,7 @@ function calculatePow(number, power) {
     // for absolute value of power
     var absResult = absPow(number, Math.abs(power));
 
+    console.log(typeof absResult);
     // based on negative/positive value of power
     if (power > 0) return absResult;
     else return 1 / absResult;
@@ -74,6 +72,7 @@ function calculatePow(number, power) {
 // Recursively calculate power of number
 // @param {number} number > 0
 // @param {number} power is natural >= 0
+// @return {number}
 
 function absPow(number, power) {
     if (power == 0) return 1;
