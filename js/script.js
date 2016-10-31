@@ -30,20 +30,28 @@ function pow() {
 
 // Get and validate user input; only numbers are allowed
 // @param {string} param
-// @return {number} value
+// @return {string} input
 
 function getParameters(param) {
 
-    var input = prompt('Enter the ' + param + ':', '0');
+    do {
 
-    if (input == null) {
-        console.log("No values provided.");
-        return;
-    }
+        var input = prompt('Enter the ' + param + ', numbers only:', '0');
 
-    while (Number.isNaN(+input) || (input.indexOf(' ') != -1) ) {
-        input = prompt('Only numbers are allowed. Enter the ' + param + ':', '0');
-    }
+        // If user cancels input or deletes default value
+        if ( (input == null) || (input == '') ) {
+            console.log("No values provided.");
+            return;
+        }
+
+        var invalid = (Number.isNaN(+input) || (input.indexOf(' ') != -1) );
+        console.log(invalid);
+        // console.log((Number.isNaN(+input)));
+        // console.log(input.indexOf(' ') == -1);
+        // console.log((input.indexOf(' ') == -1));
+
+    } while (invalid);
+
     return input;
 }
 
