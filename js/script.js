@@ -5,8 +5,8 @@
 // Result is printed to the console
 // -------------------------------------
 
-var number = prompt("Enter number: ");
-var power = prompt("Enter power:");
+var number = prompt("Enter number: ", 0);
+var power = prompt("Enter power:", 0);
 
 if ( (isNaN(+number)) || (isNaN(+power)) ) {
     console.log("Invalid input");
@@ -15,11 +15,11 @@ else console.log(pow(number, power));
 
 
 function pow(num, pw) {
-    if (pw == 1) return num;
-    else {
-        num *= num;
-        console.log(num, pw);
-        return pow(num, pw - 1);
+    var result = 1;
+    for (var i = 1; i<= Math.abs(pw); i++) {
+        result *= num;
     }
 
+    if (pw > 0) return result;
+    return 1/result;
 }
