@@ -15,9 +15,11 @@ else console.log(pow(number, power));
 
 
 function pow(num, pw) {
-    var result = 1;
-    for (var i = 1; i<= pw; i++) {
-        result *= num;
+    if (pw == 1) return num;
+    else {
+        num *= num;
+        console.log(num, pw);
+        return pow(num, pw - 1);
     }
-    return result;
+
 }
