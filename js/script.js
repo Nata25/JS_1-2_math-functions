@@ -7,7 +7,7 @@
 var number = prompt("Enter number: ", 0);
 var power = prompt("Enter power:", 0);
 
-if ( (!isNumeric(number)) || (!isNumeric(power)) ) {
+if ( isNaN(parseFloat(number)) || isNaN(parseFloat(power)) ) {
     console.log("Invalid input");
 }
 else console.log(pow(number, power));
@@ -20,15 +20,8 @@ function pow(num, pw) {
     }
     if (pw < 0) result = 1/result;
 
-    var decimal = parseInt(num, 16);
-    if (decimal.toString(16) == num) {
-        console.log("true");
+    if (num[1] == 'x') {
+        return "0x" + result.toString(16)
     }
-
-    return "0x" + result.toString(16);
-}
-
-// helper to manage empty string
-function isNumeric(n) {
-    return !isNaN(parseFloat(n));
+    else return result.toString(16);
 }
