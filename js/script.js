@@ -23,6 +23,7 @@ function pow(num, pw) {
 
     if ( /0x/.test(num) ) {
         base = 16;
+        prefix = "0x";
     }
 
     num = parseInt(num); // for negative hex
@@ -34,8 +35,9 @@ function pow(num, pw) {
     }
 
     if (pw < 0) {
-        result = 1/result;
+        result = Math.abs(1/result);
+        if (base == 16 ) prefix = "-0x";
     }
 
-    return result.toString(base);
+    return prefix + result.toString(base);
 }
