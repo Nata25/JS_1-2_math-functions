@@ -23,27 +23,19 @@ function pow(num, pw) {
 
     if ( /0x/.test(num) ) {
         base = 16;
-        prefix = "0x";
     }
 
     num = parseInt(num); // for negative hex
     pw = parseInt(pw); // for hex pow
-    console.log('num is ', num);
-    console.log('pw is ', pw);
 
     var result = 1;
     for (var i = 1; i<= Math.abs(pw); i++) {
         result *= num;
     }
-    console.log('result ', result);
 
     if (pw < 0) {
         result = 1/result;
-        if (base == 16) {
-            prefix = "-0x";
-        }
     }
 
-    return prefix + result.toString(base)
-
+    return result.toString(base);
 }
