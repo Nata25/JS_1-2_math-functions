@@ -19,8 +19,6 @@ function pow(num, pw) {
         result *= num;
     }
 
-    console.log(result);
-    
     if (pw < 0) result = 1/result;
 
     if (num[1] == 'x') {
