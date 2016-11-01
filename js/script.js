@@ -18,10 +18,13 @@ function pow(num, pw) {
     for (var i = 1; i<= Math.abs(pw); i++) {
         result *= num;
     }
+
+    console.log(result);
+    
     if (pw < 0) result = 1/result;
 
     if (num[1] == 'x') {
         return "0x" + result.toString(16)
     }
-    else return result.toString(16);
+    else return result;
 }
