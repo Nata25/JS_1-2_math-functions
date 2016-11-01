@@ -2,7 +2,8 @@
 // JavaScript. HW 1
 // analogue of Math.pow()
 // pow is a whole number
-// works with decimal and hexadecimal
+// works with decimal and hexadecimal,
+// but both param should be of one base
 // -------------------------------------
 
 var number = prompt("Enter number: ", "0");
@@ -23,15 +24,25 @@ function pow(num, pw) {
     if ( /0x/.test(num) ) {
         base = 16;
         prefix = "0x";
-        num = parseInt(num); // for negative hex
     }
+
+    num = parseInt(num); // for negative hex
+    pw = parseInt(pw); // for hex pow
+    console.log('num is ', num);
+    console.log('pw is ', pw);
 
     var result = 1;
     for (var i = 1; i<= Math.abs(pw); i++) {
         result *= num;
     }
+    console.log('result ', result);
 
-    if (pw < 0) result = 1/result;
+    if (pw < 0) {
+        result = 1/result;
+        if (base == 16) {
+            prefix = "-0x";
+        }
+    }
 
     return prefix + result.toString(base)
 
