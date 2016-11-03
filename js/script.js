@@ -2,8 +2,8 @@
 // JavaScript. HW 1
 // analogue of Math.pow()
 // pow is a whole number
-// works with decimal and hexadecimal,
-// but both param should be of one base
+// works with decimal and hexadecimal input
+// returns string in dec or hex notation depending on number 
 // -------------------------------------
 
 var number = prompt("Enter number: ", "0");
