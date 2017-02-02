@@ -3,15 +3,14 @@
 // @return res number; floats are rounded to 3 dec places
 
 function sqrt(n) {
-    var guess1, guess2, currentResult;
-    var delta;
+    var guess1 = n / 2;
+    var guess2, current, delta;
 
-    guess1 = n / 2;
     while (true) {
         guess2 = 0.5 * (guess1 + n / guess1);
-        currentResult = guess2 * guess2;
+        current = guess2 * guess2;
         delta = Math.abs(n - currentResult);
-        console.log(currentResult, guess2);
+        // console.log(current, guess2);
         if (delta < 0.001) {
             res = Math.round(guess2 * 1000) / 1000;
             return res;
@@ -20,5 +19,5 @@ function sqrt(n) {
     }
 }
 
-var number = 0.001;
+var number = 81;
 console.log(sqrt(number));

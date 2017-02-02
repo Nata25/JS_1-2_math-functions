@@ -1,9 +1,9 @@
 // -------------------------------------
 // JavaScript. HW 1
 // analogue of Math.pow()
-// pow is a whole number
-// works with decimal and hexadecimal input
-// returns string in dec or hex notation depending on number 
+// works with decimal and hexadecimal inputs
+// returns string in dec or hex notation depending on number
+// power (pw) must be a whole number (floats are converted to integers)
 // -------------------------------------
 
 var number = prompt("Enter number: ", "0");
@@ -26,12 +26,13 @@ function pow(num, pw) {
         prefix = "0x";
     }
 
-    num = parseInt(num); // for negative hex
+    num = parseFloat(num); // for negative hex
     pw = parseInt(pw); // for hex pow
 
     var result = 1;
     for (var i = 1; i<= Math.abs(pw); i++) {
         result *= num;
+        console.log("current result = ", result);
     }
 
     if (pw < 0) {
