@@ -9,7 +9,7 @@ function sqrt(n) {
     while (true) {
         guess2 = 0.5 * (guess1 + n / guess1);
         current = guess2 * guess2;
-        delta = Math.abs(n - currentResult);
+        delta = Math.abs(n - current);
         // console.log(current, guess2);
         if (delta < 0.001) {
             res = Math.round(guess2 * 1000) / 1000;
@@ -19,5 +19,5 @@ function sqrt(n) {
     }
 }
 
-var number = 81;
+var number = prompt("enter number:");
 console.log(sqrt(number));
